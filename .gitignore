@@ -1,0 +1,36 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+
+# API Keys y configuración sensible
+Config.swift
+*.plist
+!Info.plist
+!Config.plist.example
+
+# Build
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
+# CocoaPods
+Pods/
+*.podspec
+
+# Otros
+.DS_Store
+*.swp
+*.swo
+*~

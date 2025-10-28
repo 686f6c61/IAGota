@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	CONFIGURACIÓN PARA DESARROLLO LOCAL
+
+	1. Copia este archivo y renómbralo a "Config.plist" (sin .example)
+	2. Añade tu API key de OpenRouter en el campo de abajo
+	3. Config.plist está en .gitignore, nunca se subirá a GitHub
+	4. Este archivo es solo para desarrollo/testing local
+	5. En producción, los usuarios añaden su API key en Settings
+	-->
+	<key>OpenRouterAPIKey</key>
+	<string>TU_API_KEY_DE_DESARROLLO_AQUI</string>
+</dict>
+</plist>
