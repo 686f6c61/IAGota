@@ -131,22 +131,38 @@ struct FoodResponseTests {
 
 struct ModelManagerTests {
 
-    @Test("Verifica modelos disponibles")
-    func testAvailableModels() {
+    @Test("Verifica que hay exactamente 2 modelos disponibles")
+    func testAvailableModelsCount() {
         let models = ModelManager.availableModels
 
-        // Debe haber al menos algunos modelos
-        #expect(models.count > 0)
+        // En v1.2 solo hay 2 modelos: GPT-4o-mini y GPT-4o
+        #expect(models.count == 2)
 
-        // Debe haber modelos gratuitos
-        let freeModels = ModelManager.freeModels
-        #expect(freeModels.count > 0)
-        #expect(freeModels.allSatisfy { $0.isFree })
+        // Verificar que ambos son modelos de OpenAI
+        #expect(models.allSatisfy { $0.id.contains("openai") })
 
-        // Debe haber modelos de pago
-        let paidModels = ModelManager.paidModels
-        #expect(paidModels.count > 0)
-        #expect(paidModels.allSatisfy { !$0.isFree })
+        // Verificar que ambos son de pago (no hay modelos gratuitos en v1.2)
+        #expect(models.allSatisfy { !$0.isFree })
+    }
+
+    @Test("Verifica que GPT-4o-mini es el modelo por defecto")
+    func testDefaultModelSelection() {
+        let defaultModel = ModelManager.defaultModel
+
+        // GPT-4o-mini debe ser el modelo por defecto
+        #expect(defaultModel.id == "openai/gpt-4o-mini")
+        #expect(defaultModel.name == "GPT-4o Mini")
+        #expect(defaultModel.speed == "rápido")
+    }
+
+    @Test("Verifica que GPT-4o es el modelo preciso")
+    func testPreciseModelSelection() {
+        let preciseModel = ModelManager.preciseModel
+
+        // GPT-4o debe ser el modelo preciso
+        #expect(preciseModel.id == "openai/chatgpt-4o-latest")
+        #expect(preciseModel.name == "GPT-4o")
+        #expect(preciseModel.speed == "medio")
     }
 
     @Test("Verifica que cada modelo tiene ID único")
@@ -270,5 +286,134 @@ struct OpenRouterServiceTests {
         #expect(prompt.contains("médico especialista"))
         #expect(prompt.contains("reumatología"))
         #expect(prompt.contains("nutricionista"))
+    }
+}
+
+// MARK: - MenuAnalysisModels Tests (v1.2)
+
+struct MenuAnalysisModelsTests {
+
+    @Test("Verifica inicialización de DishAnalysis")
+    func testDishAnalysisInitialization() {
+        let dish = DishAnalysis(
+            name: "Salmón a la plancha",
+            level: "verde",
+            category: "Seguro",
+            reason: "Bajo contenido de purinas",
+            purinas: 45
+        )
+
+        #expect(dish.name == "Salmón a la plancha")
+        #expect(dish.level == "verde")
+        #expect(dish.category == "Seguro")
+        #expect(dish.reason == "Bajo contenido de purinas")
+        #expect(dish.purinas == 45)
+        #expect(dish.id != UUID(uuidString: "00000000-0000-0000-0000-000000000000")!)
+    }
+
+    @Test("Verifica mapeo de colores de semáforo")
+    func testTrafficLightColorMapping() {
+        let greenDish = DishAnalysis(name: "Test", level: "verde", category: "Seguro", reason: "Test", purinas: 30)
+        let yellowDish = DishAnalysis(name: "Test", level: "amarillo", category: "Moderado", reason: "Test", purinas: 100)
+        let redDish = DishAnalysis(name: "Test", level: "rojo", category: "Evitar", reason: "Test", purinas: 200)
+        let unknownDish = DishAnalysis(name: "Test", level: "desconocido", category: "N/A", reason: "Test", purinas: 0)
+
+        #expect(greenDish.trafficLightColor == "🟢")
+        #expect(yellowDish.trafficLightColor == "🟡")
+        #expect(redDish.trafficLightColor == "🔴")
+        #expect(unknownDish.trafficLightColor == "⚪️")
+
+        // Verificar case-insensitive
+        let mixedCaseDish = DishAnalysis(name: "Test", level: "VERDE", category: "Seguro", reason: "Test", purinas: 30)
+        #expect(mixedCaseDish.trafficLightColor == "🟢")
+    }
+
+    @Test("Verifica agrupación de platos por nivel en MenuAnalysisResult")
+    func testMenuAnalysisResultGrouping() {
+        let dishes = [
+            DishAnalysis(name: "Plato 1", level: "verde", category: "Seguro", reason: "Bajo", purinas: 20),
+            DishAnalysis(name: "Plato 2", level: "verde", category: "Seguro", reason: "Bajo", purinas: 30),
+            DishAnalysis(name: "Plato 3", level: "amarillo", category: "Moderado", reason: "Medio", purinas: 100),
+            DishAnalysis(name: "Plato 4", level: "rojo", category: "Evitar", reason: "Alto", purinas: 250),
+            DishAnalysis(name: "Plato 5", level: "rojo", category: "Evitar", reason: "Alto", purinas: 300)
+        ]
+
+        let result = MenuAnalysisResult(isValidMenu: true, dishes: dishes)
+
+        // Verificar totalDishes
+        #expect(result.totalDishes == 5)
+
+        // Verificar agrupación
+        let dishesByLevel = result.dishesByLevel
+        #expect(dishesByLevel["verde"]?.count == 2)
+        #expect(dishesByLevel["amarillo"]?.count == 1)
+        #expect(dishesByLevel["rojo"]?.count == 2)
+    }
+
+    @Test("Verifica parsing de MenuValidationResponse")
+    func testMenuValidationResponseParsing() throws {
+        // Respuesta válida: es un menú
+        let validJson = """
+        {
+            "isMenu": true,
+            "reason": "La imagen contiene una carta de restaurante con múltiples platos"
+        }
+        """
+
+        let validData = validJson.data(using: .utf8)!
+        let validResponse = try JSONDecoder().decode(MenuValidationResponse.self, from: validData)
+
+        #expect(validResponse.isMenu == true)
+        #expect(validResponse.reason == "La imagen contiene una carta de restaurante con múltiples platos")
+
+        // Respuesta inválida: no es un menú
+        let invalidJson = """
+        {
+            "isMenu": false,
+            "reason": "La imagen no contiene una carta de restaurante"
+        }
+        """
+
+        let invalidData = invalidJson.data(using: .utf8)!
+        let invalidResponse = try JSONDecoder().decode(MenuValidationResponse.self, from: invalidData)
+
+        #expect(invalidResponse.isMenu == false)
+        #expect(invalidResponse.reason != nil)
+    }
+
+    @Test("Verifica parsing de DishesExtractionResponse")
+    func testDishesExtractionResponseParsing() throws {
+        // Lista de platos extraídos
+        let jsonString = """
+        {
+            "dishes": [
+                "Ensalada César",
+                "Salmón a la plancha",
+                "Pollo al curry",
+                "Tarta de queso"
+            ]
+        }
+        """
+
+        let data = jsonString.data(using: .utf8)!
+        let response = try JSONDecoder().decode(DishesExtractionResponse.self, from: data)
+
+        #expect(response.dishes.count == 4)
+        #expect(response.dishes.contains("Ensalada César"))
+        #expect(response.dishes.contains("Salmón a la plancha"))
+        #expect(response.dishes.contains("Pollo al curry"))
+        #expect(response.dishes.contains("Tarta de queso"))
+
+        // Array vacío
+        let emptyJson = """
+        {
+            "dishes": []
+        }
+        """
+
+        let emptyData = emptyJson.data(using: .utf8)!
+        let emptyResponse = try JSONDecoder().decode(DishesExtractionResponse.self, from: emptyData)
+
+        #expect(emptyResponse.dishes.isEmpty)
     }
 }
