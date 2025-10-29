@@ -18,13 +18,27 @@ struct DishAnalysis: Identifiable, Codable {
     let reason: String
     let purinas: Int // mg/100g
 
-    init(id: UUID = UUID(), name: String, level: String, category: String, reason: String, purinas: Int) {
+    // MARK: - Campos extendidos v1.2.0
+    let score: Int?
+    let alternativas: [Alternativa]?
+    let contextoTemporal: String?
+    let consejoPreparacion: String?
+    let factoresMetabolicos: String?
+    let infoNutricional: InfoNutricional?
+
+    init(id: UUID = UUID(), name: String, level: String, category: String, reason: String, purinas: Int, score: Int? = nil, alternativas: [Alternativa]? = nil, contextoTemporal: String? = nil, consejoPreparacion: String? = nil, factoresMetabolicos: String? = nil, infoNutricional: InfoNutricional? = nil) {
         self.id = id
         self.name = name
         self.level = level
         self.category = category
         self.reason = reason
         self.purinas = purinas
+        self.score = score
+        self.alternativas = alternativas
+        self.contextoTemporal = contextoTemporal
+        self.consejoPreparacion = consejoPreparacion
+        self.factoresMetabolicos = factoresMetabolicos
+        self.infoNutricional = infoNutricional
     }
 
     /// Color del semáforo según el nivel
@@ -35,6 +49,16 @@ struct DishAnalysis: Identifiable, Codable {
         case "rojo": return "🔴"
         default: return "⚪️"
         }
+    }
+
+    /// Número de alternativas disponibles
+    var alternativasCount: Int {
+        alternativas?.count ?? 0
+    }
+
+    /// Tiene información extendida disponible
+    var hasExtendedInfo: Bool {
+        score != nil || alternativas != nil || contextoTemporal != nil || consejoPreparacion != nil || factoresMetabolicos != nil || infoNutricional != nil
     }
 }
 

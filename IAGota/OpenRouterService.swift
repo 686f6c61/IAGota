@@ -32,13 +32,13 @@ class OpenRouterService {
     func consultarAlimento(_ alimento: String) async throws -> FoodResponse {
         // Crear el prompt
         let prompt = """
-        Actúa como un médico especialista en reumatología y nutricionista clínico especializado en hiperuricemia y gota. Tu tarea es analizar alimentos y proporcionar información precisa sobre su contenido de purinas.
+        Eres un asistente educativo nutricional especializado en el análisis de purinas en alimentos. Tu objetivo es proporcionar información precisa y extendida sobre el contenido de purinas para ayudar a las personas a tomar mejores decisiones alimenticias.
 
-        CONTEXTO MÉDICO:
+        CONTEXTO NUTRICIONAL:
         - Las purinas se metabolizan en ácido úrico
-        - Pacientes con gota deben limitar purinas a < 150 mg/día
+        - Una dieta baja en purinas generalmente limita la ingesta a < 150 mg/día
         - La cocción puede reducir purinas en un 30-50% (purinas solubles en agua)
-        - Los valores deben ser lo más exactos posible basándose en literatura médica
+        - Los valores deben ser lo más exactos posible basándose en literatura científica
 
         CLASIFICACIÓN ESTRICTA:
         - BAJO (verde): < 50 mg/100g → Consumo libre
@@ -70,16 +70,33 @@ class OpenRouterService {
           "nivel": "verde o amarillo o rojo",
           "categoria": "Seguro o Moderado o Evitar",
           "razon": "explicación técnica pero clara del porqué, mencionando el contenido específico y efectos metabólicos (máximo 3 líneas)",
-          "purinas": número_entero (contenido en mg por 100g, debe ser PRECISO)
+          "purinas": número_entero (contenido en mg por 100g, debe ser PRECISO),
+          "score": número_entero de 0 a 100 (100 = más seguro para ácido úrico, basado en purinas y otros factores),
+          "alternativas": [solo si nivel es amarillo o rojo, array de 2-3 objetos con {nombre: string, purinas: número, nivel: string}],
+          "contextoTemporal": "string opcional con frecuencia segura de consumo (ej: 'Consumir máximo 1 vez por semana si el resto de la dieta es baja en purinas')",
+          "consejoPreparacion": "string opcional SOLO si existe una forma de cocinar que reduzca significativamente las purinas (ej: 'Hervir este alimento reduce sus purinas en 30-50%')",
+          "factoresMetabolicos": "string opcional SOLO si el alimento tiene efectos especiales en el metabolismo del ácido úrico más allá de su contenido de purinas (ej: cerveza inhibe excreción, fructosa alta aumenta producción)",
+          "infoNutricional": {objeto opcional con datos relevantes: proteinas (double), fructosa (double), vitaminaC (double), omega3 (string: 'alto'/'medio'/'bajo')}
         }
 
-        IMPORTANTE:
+        CRITERIOS PARA CAMPOS OPCIONALES:
+        - score: Calcula basándote en purinas (peso 70%), factores metabólicos (20%), y beneficios nutricionales (10%)
+        - alternativas: Solo para amarillo/rojo. Sugiere 2-3 alimentos similares pero más seguros
+        - contextoTemporal: Proporciona siempre si nivel es amarillo o rojo
+        - consejoPreparacion: Solo si hervir/cocinar reduce purinas significativamente
+        - factoresMetabolicos: Solo si hay efectos especiales (cerveza, alcohol, fructosa alta, etc.)
+        - infoNutricional: Incluye solo datos relevantes para ácido úrico (vitamina C ayuda, fructosa aumenta, omega-3 antiinflamatorio)
+
+        IMPORTANTE - RESTRICCIONES LEGALES:
+        - NO uses lenguaje prescriptivo como "debes", "tienes que", "recomendamos"
+        - USA lenguaje informativo: "contiene", "este alimento presenta", "se caracteriza por"
+        - Esta es información nutricional educativa, NO recomendación médica
+        - NO uses términos como "paciente", "médico", "diagnóstico", "tratamiento"
+        - USA lenguaje educativo: "personas que controlan purinas", "hábitos alimenticios saludables"
         - Usa castellano neutro (no regionalismos)
         - Sé EXACTO con los números de purinas
-        - Si no estás seguro del valor exacto, usa el rango superior por seguridad
-        - Menciona factores adicionales relevantes (ej: cerveza inhibe excreción)
 
-        CONSULTA DEL PACIENTE: \(alimento)
+        CONSULTA: \(alimento)
         """
 
         // Crear el body de la petición

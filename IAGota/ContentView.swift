@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var errorMessage: String?
     @State private var showSettings: Bool = false
     @State private var showPhotoMenu: Bool = false
+    @FocusState private var isTextFieldFocused: Bool
 
     var body: some View {
         NavigationView {
@@ -89,6 +90,14 @@ struct ContentView: View {
                             .font(.title3)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
+                            .focused($isTextFieldFocused)
+                            .submitLabel(.done)
+                            .onSubmit {
+                                isTextFieldFocused = false
+                                if !alimento.isEmpty {
+                                    consultar()
+                                }
+                            }
                     }
                     .padding()
                     .background(Color(.systemGray6))
@@ -96,6 +105,7 @@ struct ContentView: View {
                     .padding(.horizontal)
 
                     Button {
+                        isTextFieldFocused = false
                         consultar()
                     } label: {
                         HStack {
@@ -169,6 +179,12 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                         }
 
+                        // Score 0-100 (si está disponible)
+                        if let score = resultado.score {
+                            ScoreView(score: score, nivel: resultado.nivel)
+                                .padding(.horizontal)
+                        }
+
                         // Categoría
                         Text(resultado.categoria.uppercased())
                             .font(.title)
@@ -211,6 +227,36 @@ struct ContentView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
                             .foregroundColor(.secondary)
+
+                        // Alternativas (solo para amarillo/rojo)
+                        if let alternativas = resultado.alternativas, !alternativas.isEmpty {
+                            AlternativasView(alternativas: alternativas)
+                                .padding(.horizontal)
+                        }
+
+                        // Contexto temporal
+                        if let contextoTemporal = resultado.contextoTemporal {
+                            ContextoTemporalView(contexto: contextoTemporal)
+                                .padding(.horizontal)
+                        }
+
+                        // Información nutricional
+                        if let infoNutricional = resultado.infoNutricional {
+                            InfoNutricionalView(info: infoNutricional)
+                                .padding(.horizontal)
+                        }
+
+                        // Factores metabólicos especiales
+                        if let factoresMetabolicos = resultado.factoresMetabolicos {
+                            FactoresMetabolicosView(factores: factoresMetabolicos)
+                                .padding(.horizontal)
+                        }
+
+                        // Consejo de preparación (colapsable)
+                        if let consejoPreparacion = resultado.consejoPreparacion {
+                            ConsejoPreparacionView(consejo: consejoPreparacion)
+                                .padding(.horizontal)
+                        }
                     }
                     .padding()
                     .background(Color.gray.opacity(0.1))
@@ -252,6 +298,15 @@ struct ContentView: View {
             .sheet(isPresented: $showPhotoMenu) {
                 PhotoMenuView()
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Listo") {
+                        isTextFieldFocused = false
+                    }
+                    .fontWeight(.semibold)
+                }
+            }
         }
     }
 
@@ -277,6 +332,8 @@ struct ContentView: View {
                 await MainActor.run {
                     self.resultado = response
                     self.isLoading = false
+                    // Ocultar teclado cuando se obtiene el resultado
+                    self.isTextFieldFocused = false
                 }
             } catch {
                 await MainActor.run {
@@ -288,6 +345,8 @@ struct ContentView: View {
                     }
                     self.errorMessage = errorMsg
                     self.isLoading = false
+                    // Ocultar teclado también en caso de error
+                    self.isTextFieldFocused = false
                 }
             }
         }

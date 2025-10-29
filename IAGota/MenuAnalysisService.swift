@@ -23,9 +23,12 @@ class MenuAnalysisService {
     // MARK: - Main Analysis Method
 
     /// Analiza una foto de carta y devuelve los platos con sus niveles de purinas
-    func analyzeMenu(image: UIImage) async throws -> MenuAnalysisResult {
+    func analyzeMenu(image: UIImage, progressCallback: ((String, Int, Int) -> Void)? = nil) async throws -> MenuAnalysisResult {
         // Paso 1: Validar que es una carta
         print("📸 Paso 1: Validando que sea una carta...")
+        await MainActor.run {
+            progressCallback?("Validando imagen...", 0, 0)
+        }
         let isValid = try await validateIsMenu(image: image)
 
         if !isValid {
@@ -38,6 +41,9 @@ class MenuAnalysisService {
 
         // Paso 2: Extraer lista de platos
         print("📝 Paso 2: Extrayendo platos de la carta...")
+        await MainActor.run {
+            progressCallback?("Extrayendo platos...", 0, 0)
+        }
         let dishNames = try await extractDishes(image: image)
 
         if dishNames.isEmpty {
@@ -53,7 +59,10 @@ class MenuAnalysisService {
         // Paso 3: Analizar cada plato (máximo 20 platos para no saturar)
         print("🔍 Paso 3: Analizando contenido de purinas de cada plato...")
         let limitedDishes = Array(dishNames.prefix(20))
-        let dishes = try await analyzeDishes(limitedDishes)
+        await MainActor.run {
+            progressCallback?("Analizando platos...", 0, limitedDishes.count)
+        }
+        let dishes = try await analyzeDishes(limitedDishes, progressCallback: progressCallback)
 
         return MenuAnalysisResult(
             isValidMenu: true,
@@ -151,15 +160,18 @@ class MenuAnalysisService {
 
     // MARK: - Step 3: Analyze Purines for Each Dish
 
-    private func analyzeDishes(_ dishNames: [String]) async throws -> [DishAnalysis] {
+    private func analyzeDishes(_ dishNames: [String], progressCallback: ((String, Int, Int) -> Void)? = nil) async throws -> [DishAnalysis] {
         var results: [DishAnalysis] = []
 
         // Usar el servicio existente de OpenRouter para analizar cada plato
         let service = OpenRouterService(apiKey: apiKey, model: "openai/gpt-4o-mini")
 
-        for dishName in dishNames {
+        for (index, dishName) in dishNames.enumerated() {
             do {
                 print("  Analizando: \(dishName)")
+                await MainActor.run {
+                    progressCallback?("Analizando: \(dishName)", index + 1, dishNames.count)
+                }
                 let foodResponse = try await service.consultarAlimento(dishName)
 
                 let dish = DishAnalysis(
@@ -167,7 +179,13 @@ class MenuAnalysisService {
                     level: foodResponse.nivel,
                     category: foodResponse.categoria,
                     reason: foodResponse.razon,
-                    purinas: foodResponse.purinas
+                    purinas: foodResponse.purinas,
+                    score: foodResponse.score,
+                    alternativas: foodResponse.alternativas,
+                    contextoTemporal: foodResponse.contextoTemporal,
+                    consejoPreparacion: foodResponse.consejoPreparacion,
+                    factoresMetabolicos: foodResponse.factoresMetabolicos,
+                    infoNutricional: foodResponse.infoNutricional
                 )
 
                 results.append(dish)

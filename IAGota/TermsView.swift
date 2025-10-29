@@ -45,7 +45,9 @@ struct TermsView: View {
                 SectionView(
                     title: "1. Uso de la Aplicación",
                     content: """
-                    Esta aplicación proporciona información general sobre alimentos y su relación con el ácido úrico. La información proporcionada NO sustituye el consejo médico profesional.
+                    Esta aplicación proporciona información educativa extendida sobre alimentos y su relación con el ácido úrico (v1.2.0+): clasificación, purinas, índice de seguridad 0-100, alternativas, contexto temporal, consejos de preparación, factores metabólicos e información nutricional.
+
+                    La información proporcionada NO sustituye el consejo médico profesional.
 
                     Al usar esta aplicación, aceptas que:
                     • La información es solo con fines educativos

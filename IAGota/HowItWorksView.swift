@@ -28,13 +28,16 @@ struct HowItWorksView: View {
                     }
 
                     Text("""
-                    Esta aplicación utiliza modelos de inteligencia artificial configurados para actuar como especialistas médicos en reumatología y nutrición clínica.
+                    Esta aplicación utiliza modelos de inteligencia artificial especializados en análisis nutricional de purinas.
 
-                    El sistema está programado para:
-                    • Proporcionar valores precisos de purinas basados en literatura médica
-                    • Considerar factores como método de cocción y preparación
-                    • Analizar efectos metabólicos adicionales (ej: cerveza inhibe excreción)
-                    • Dar recomendaciones específicas según contenido de purinas
+                    El sistema está programado para proporcionar (v1.2.0+):
+                    • Valores de purinas basados en literatura científica
+                    • Índice de seguridad de 0 a 100 (considera purinas, factores metabólicos y beneficios nutricionales)
+                    • Alternativas más seguras para alimentos amarillos/rojos
+                    • Contexto temporal: frecuencia recomendada de consumo
+                    • Consejos de preparación para reducir purinas (si aplica)
+                    • Factores metabólicos especiales (ej: cerveza inhibe excreción)
+                    • Información nutricional relevante (proteínas, fructosa, vitamina C, omega-3)
 
                     Los modelos disponibles para consultas de texto:
                     • GPT-4o-mini (predeterminado) - Rápido y económico
@@ -107,8 +110,8 @@ struct HowItWorksView: View {
 
                     ProcessStepView(
                         number: 3,
-                        title: "Resultado Detallado",
-                        description: "Recibes clasificación (verde/amarillo/rojo), contenido preciso de purinas en mg/100g, y explicación técnica con factores metabólicos relevantes"
+                        title: "Resultado Detallado (v1.2.0+)",
+                        description: "Recibes información extendida: clasificación (verde/amarillo/rojo), índice de seguridad 0-100, purinas en mg/100g, alternativas más seguras (si aplica), contexto temporal de consumo, consejos de preparación, factores metabólicos especiales e información nutricional relevante"
                     )
                 }
 

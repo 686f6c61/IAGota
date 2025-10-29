@@ -1,19 +1,10 @@
-# IAGota - Consulta de Alimentos para el Cuidado del Ácido Úrico
+# IAGota - CONSULTA DE PURINAS EN ALIMENTOS
 
 Una aplicación iOS que utiliza inteligencia artificial para analizar alimentos y cartas de restaurante, proporcionando información sobre su contenido de purinas para ayudar a personas que cuidan sus niveles de ácido úrico.
 
-## CAPTURAS DE PANTALLA
+## DEMOSTRACIÓN
 
-<p align="center">
-  <img src="images/01.png" width="200" alt="Pantalla principal">
-  <img src="images/02.png" width="200" alt="Resultado del análisis">
-  <img src="images/03.png" width="200" alt="Configuración">
-</p>
-<p align="center">
-  <img src="images/04.png" width="200" alt="Análisis de carta">
-  <img src="images/05.png" width="200" alt="Resultados de carta">
-  <img src="images/06.png" width="200" alt="Detalle de plato">
-</p>
+![Demostración de IAGota v1.2.0](images/IA-Gota-v2.gif)
 
 ## AVISO IMPORTANTE
 
@@ -21,16 +12,29 @@ Una aplicación iOS que utiliza inteligencia artificial para analizar alimentos 
 
 ## CARACTERÍSTICAS
 
-- 🩺 **Análisis Especializado**: La IA actúa como médico especialista en reumatología y nutricionista clínico
-- 🍕 **Análisis de Alimentos**: Consulta cualquier alimento, ingrediente o plato completo
-- 📸 **Análisis de Cartas de Restaurante**: Fotografía el menú y obtén automáticamente el análisis de purinas de todos los platos
-- 🎯 **Valores Precisos**: Contenido exacto de purinas basado en literatura médica
-- 🎨 **Sistema de Semáforo**: Clasificación visual (verde/amarillo/rojo) según el contenido de purinas
-- 📊 **Información Detallada**: Muestra mg/100g, efectos metabólicos y consideraciones de preparación
-- 🤖 **Modelos de IA OpenAI**: GPT-4o-mini (predeterminado, económico) y GPT-4o (mayor precisión)
-- 💧 **Splash Screen**: Pantalla de bienvenida animada al iniciar la app
-- 🔒 **Privacidad**: Tu clave de API se almacena localmente, las fotos no se guardan
-- 🌍 **Castellano neutro**: Interfaz y respuestas en español internacional
+### Análisis de Alimentos
+- **Consulta Individual**: Analiza cualquier alimento, ingrediente o plato completo
+- **Sistema de Semáforo**: Clasificación visual (verde/amarillo/rojo) según contenido de purinas
+- **Índice de Seguridad (v1.2.0)**: Score 0-100 basado en purinas (70%), factores metabólicos (20%) y beneficios nutricionales (10%)
+- **Alternativas Inteligentes (v1.2.0)**: Sugerencias de alimentos más seguros para platos amarillos/rojos
+- **Contexto Temporal (v1.2.0)**: Frecuencia recomendada de consumo (diario, semanal, ocasional)
+- **Consejos de Preparación (v1.2.0)**: Tips de cocina para reducir purinas si es posible
+- **Factores Metabólicos (v1.2.0)**: Efectos especiales en el ácido úrico (fructosa, purinas, alcohol)
+- **Info Nutricional (v1.2.0)**: Proteínas, fructosa, vitamina C y omega-3
+
+### Análisis de Cartas de Restaurante
+- **Fotografía el Menú**: Usa la cámara o selecciona de galería
+- **Extracción Automática**: OCR inteligente detecta todos los platos de la carta
+- **Análisis Completo**: Cada plato incluye toda la información extendida v1.2.0
+- **Progreso en Tiempo Real (v1.2.0)**: Barra de progreso, contador de platos y tiempo estimado
+- **Filtros y Ordenación (v1.2.0)**: Filtra por nivel (verde/amarillo/rojo) y ordena por score, purinas o nombre
+- **Detalle Expandido**: Toca cualquier plato para ver información completa con alternativas
+
+### General
+- **Modelos de IA OpenAI**: GPT-4o-mini (predeterminado, económico) y GPT-4o (mayor precisión)
+- **Splash Screen**: Pantalla de bienvenida animada al iniciar la app
+- **Privacidad Total**: Tu clave de API se almacena localmente, las fotos no se guardan
+- **Naturaleza Educativa**: No es una app médica, sino educacional para mejorar hábitos alimenticios
 
 ## REQUISITOS
 
@@ -90,27 +94,65 @@ Cada modelo incluye un botón de información (ℹ️) que abre su página en Op
 
 ## USO
 
-1. **Configura tu clave de API** (solo primera vez):
-   - Toca el ícono ⚙️ en la esquina superior derecha
-   - Pega tu clave de API de OpenRouter
-   - Opcionalmente, selecciona tu modelo de IA preferido (GPT-4o-mini o GPT-4o)
+### 1. Configuración Inicial
+- Toca el ícono ⚙️ en la esquina superior derecha
+- Pega tu clave de API de OpenRouter
+- Opcionalmente, selecciona tu modelo de IA preferido (GPT-4o-mini o GPT-4o)
 
-2. **Consulta un alimento**:
-   - Escribe el nombre del alimento, ingrediente o plato
-   - Ejemplos: «tomate», «cerveza», «pizza carbonara»
-   - Presiona «Consultar»
+### 2. Consulta de Alimentos Individuales
 
-3. **Analiza una carta de restaurante** (NUEVO en v1.2):
-   - Toca el botón 📸 «Semáforo de purinas»
-   - Fotografía la carta del restaurante o selecciona una foto de tu galería
-   - La IA extraerá automáticamente todos los platos
-   - Recibirás el análisis de purinas de cada plato con su clasificación de semáforo
-   - Las fotos NO se guardan en tu dispositivo
+**Realizar consulta:**
+- Escribe el nombre del alimento, ingrediente o plato
+- Ejemplos: «tomate», «cerveza», «pizza carbonara»
+- Presiona «Consultar» o Enter
 
-4. **Interpreta el resultado**:
-   - 🟢 **Verde (< 50 mg/100 g)**: seguro para consumo regular
-   - 🟡 **Amarillo (50-150 mg/100 g)**: consumo moderado
-   - 🔴 **Rojo (> 150 mg/100 g)**: evitar o consumir con precaución
+**Resultado extendido (v1.2.0):**
+- **Semáforo**: 🟢 Verde / 🟡 Amarillo / 🔴 Rojo
+- **Contenido**: mg de purinas por 100g
+- **Índice de Seguridad**: Score 0-100 con barra visual colorida
+- **Explicación**: Razonamiento del nivel asignado
+- **Alternativas**: Opciones más seguras (solo si es amarillo/rojo)
+- **Contexto Temporal**: Frecuencia recomendada de consumo
+- **Info Nutricional**: Proteínas, fructosa, vitamina C, omega-3
+- **Factores Metabólicos**: Efectos especiales (si aplica)
+- **Consejos de Preparación**: Tips de cocina para reducir purinas (si aplica)
+
+### 3. Análisis de Cartas de Restaurante
+
+**Capturar carta:**
+- Toca el botón 📸 «Semáforo de purinas»
+- Toma una foto de la carta o selecciona de galería
+- Presiona «Analizar esta carta»
+
+**Durante el análisis:**
+- ⏰ Aviso: proceso puede tardar 30-60 segundos
+- 📊 Barra de progreso visual en tiempo real
+- 🔢 Contador: "X de Y platos analizados"
+- ⏱️ Tiempo estimado restante
+- 📝 Nombre del plato actual en análisis
+
+**Resultados:**
+- Lista completa con todos los platos detectados
+- Cada plato muestra: semáforo, score (⭐ X/100), purinas e indicador de alternativas
+- **Filtros**: Botones para ver solo 🟢 Verde / 🟡 Amarillo / 🔴 Rojo / Todos
+- **Ordenación**: Por Score / Por Purinas / Por Nombre
+- Toca cualquier plato para ver detalle completo con toda la info extendida
+
+**Privacidad:**
+- Las fotos NO se guardan en tu dispositivo ni en servidores
+- Se procesan temporalmente y se descartan inmediatamente
+
+### 4. Interpretación del Semáforo
+
+- 🟢 **Verde (< 50 mg/100 g)**: Seguro para consumo regular
+- 🟡 **Amarillo (50-150 mg/100 g)**: Consumo moderado
+- 🔴 **Rojo (> 150 mg/100 g)**: Evitar o consumir con precaución
+
+**Score 0-100:**
+- 🟢 **90-100**: Excelente (muy seguro)
+- 💙 **70-89**: Seguro
+- 🟡 **50-69**: Moderadamente seguro
+- 🔴 **0-49**: Precaución requerida
 
 ## SEGURIDAD
 
@@ -139,33 +181,66 @@ xcodebuild -scheme IAGota -configuration Debug
 ```
 IAGota/
 ├── IAGota/
-│   ├── IAGotaApp.swift             # Punto de entrada
-│   ├── SplashScreenView.swift      # Pantalla de bienvenida animada
-│   ├── ContentView.swift           # Vista principal
-│   ├── SettingsView.swift          # Configuración
-│   ├── APIKeyManager.swift         # Gestión de clave de API
-│   ├── AIModel.swift               # Modelos de IA disponibles (GPT-4o, GPT-4o-mini)
-│   ├── ModelManager.swift          # Gestión de selección de modelo
-│   ├── OpenRouterService.swift     # Cliente HTTP para consultas de texto
-│   ├── FoodResponse.swift          # Modelos de datos
-│   ├── PhotoPicker.swift           # Selector de fotos (cámara/galería) - NUEVO v1.2
-│   ├── PhotoMenuView.swift         # Vista de análisis de cartas - NUEVO v1.2
-│   ├── MenuAnalysisService.swift   # Servicio de análisis OCR de menús - NUEVO v1.2
-│   ├── MenuAnalysisModels.swift    # Modelos de datos para análisis de menús - NUEVO v1.2
-│   ├── HowItWorksView.swift        # Explicación de uso
-│   ├── LegalView.swift             # Aviso legal
-│   ├── TermsView.swift             # Términos y condiciones
-│   ├── HowToGetAPIKeyView.swift    # Guía de clave de API
-│   ├── ModelSelectionView.swift    # Selector de modelos
-│   ├── Config.plist                # ⚠️ No subir a Git
-│   └── Config.plist.example        # Plantilla para desarrollo
+│   ├── IAGotaApp.swift                  # Punto de entrada
+│   ├── SplashScreenView.swift           # Pantalla de bienvenida animada
+│   │
+│   ├── # Vista principal y análisis
+│   ├── ContentView.swift                # Vista principal de consulta (con info v1.2.0)
+│   ├── OpenRouterService.swift          # Cliente HTTP para consultas de texto
+│   ├── FoodResponse.swift               # Modelos de datos (extendido v1.2.0)
+│   ├── FoodResponseComponents.swift     # Componentes UI extendidos v1.2.0
+│   │
+│   ├── # Análisis de cartas por foto
+│   ├── PhotoMenuView.swift              # Vista de análisis de cartas v1.2.0
+│   ├── PhotoPicker.swift                # Selector de fotos (cámara/galería)
+│   ├── MenuAnalysisView.swift           # Resultados con filtros y ordenación v1.2.0
+│   ├── MenuAnalysisService.swift        # Servicio OCR con callback de progreso v1.2.0
+│   ├── MenuAnalysisModels.swift         # Modelos extendidos para menús v1.2.0
+│   │
+│   ├── # Configuración y gestión
+│   ├── SettingsView.swift               # Configuración de app
+│   ├── APIKeyManager.swift              # Gestión de clave de API
+│   ├── AIModel.swift                    # Modelos disponibles (GPT-4o, GPT-4o-mini)
+│   ├── ModelManager.swift               # Gestión de selección de modelo
+│   ├── ModelSelectionView.swift         # Selector de modelos
+│   │
+│   ├── # Información y legal
+│   ├── HowItWorksView.swift             # Explicación de uso (actualizado v1.2.0)
+│   ├── LegalView.swift                  # Aviso legal (actualizado v1.2.0)
+│   ├── TermsView.swift                  # Términos y condiciones (actualizado v1.2.0)
+│   ├── HowToGetAPIKeyView.swift         # Guía de clave de API
+│   │
+│   ├── # Configuración
+│   ├── Config.plist                     # ⚠️ No subir a Git
+│   └── Config.plist.example             # Plantilla para desarrollo
+│
 ├── docs/
-│   ├── index.html                  # Política de privacidad (web)
-│   └── privacy-policy.md           # Política de privacidad (markdown)
-├── README.md
+│   ├── index.html                       # Política de privacidad (web) - v1.2.0
+│   └── privacy-policy.md                # Política de privacidad (markdown) - v1.2.0
+│
+├── README.md                            # Este archivo
+├── TESTS_COVERAGE.md                    # Cobertura de tests
 ├── LICENSE
 └── .gitignore
 ```
+
+### Nuevos archivos v1.2.0
+
+- **FoodResponseComponents.swift**: Componentes UI reutilizables
+  - `ScoreView`: Índice de seguridad 0-100 con gradiente
+  - `AlternativasView`: Lista de alternativas más seguras
+  - `ContextoTemporalView`: Frecuencia de consumo
+  - `ConsejoPreparacionView`: Tips de preparación colapsables
+  - `FactoresMetabolicosView`: Efectos metabólicos
+  - `InfoNutricionalView`: Datos nutricionales
+  - `ScoreInfoSheet`: Popup explicativo de niveles
+
+- **MenuAnalysisView.swift**: Resultados de análisis de carta
+  - Filtros por nivel (verde/amarillo/rojo)
+  - Ordenación (score/purinas/nombre)
+  - Modal de detalle con info extendida
+
+- **Progreso en tiempo real**: Sistema de callbacks para mostrar avance durante análisis de cartas
 
 ### Arquitectura
 
@@ -218,4 +293,4 @@ Esta aplicación no proporciona consejo médico. Las respuestas son generadas po
 ---
 
 **Versión**: 1.2.0
-**Última actualización**: enero de 2025
+**Última actualización**: octubre de 2025

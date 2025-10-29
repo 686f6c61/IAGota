@@ -196,10 +196,14 @@ struct LegalView: View {
                     • Modelos de Inteligencia Artificial (OpenAI GPT-4o y GPT-4o-mini)
                     • Datos de investigaciones sobre hiperuricemia y gota
 
-                    Los modelos de IA han sido instruidos con:
-                    • Valores estándar de purinas por 100g de alimento
-                    • Clasificación médica: <50mg (bajo), 50-150mg (moderado), >150mg (alto)
-                    • Consideraciones de preparación culinaria
+                    INFORMACIÓN PROPORCIONADA (v1.2.0+):
+                    • Clasificación: <50mg (verde), 50-150mg (amarillo), >150mg (rojo)
+                    • Índice de seguridad: Score 0-100 basado en purinas (70%), factores metabólicos (20%), beneficios nutricionales (10%)
+                    • Alternativas más seguras: Solo para alimentos amarillos/rojos
+                    • Contexto temporal: Frecuencia recomendada de consumo
+                    • Consejos de preparación: Si cocinar puede reducir purinas
+                    • Factores metabólicos: Efectos especiales en ácido úrico
+                    • Info nutricional: Proteínas, fructosa, vitamina C, omega-3
 
                     ANÁLISIS DE FOTOS DE CARTAS:
                     • Utiliza GPT-4o para reconocimiento óptico de caracteres (OCR)
@@ -232,7 +236,7 @@ struct LegalView: View {
                         .padding(.top, 5)
                 }
 
-                Text("Versión 1.0.0")
+                Text("Versión 1.2.0")
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)

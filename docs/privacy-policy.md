@@ -63,7 +63,17 @@ Usted mantiene el control total sobre su API key y puede eliminarla en cualquier
 
 ### PROCESAMIENTO DE CONSULTAS
 
-El flujo de información cuando realiza una consulta es el siguiente: usted ingresa el nombre de un alimento, la aplicación toma ese texto junto con su API key, lo envía mediante una conexión HTTPS encriptada a OpenRouter, donde los modelos de IA (como GPT-4o, Claude 3.5 Sonnet o DeepSeek V3.1) analizan la consulta y devuelven información estructurada sobre el contenido de purinas.
+El flujo de información cuando realiza una consulta es el siguiente: usted ingresa el nombre de un alimento, la aplicación toma ese texto junto con su API key, lo envía mediante una conexión HTTPS encriptada a OpenRouter, donde los modelos de IA (GPT-4o-mini o GPT-4o) analizan la consulta y devuelven información estructurada extendida sobre el contenido de purinas.
+
+**Información que recibe (v1.2.0+):**
+- **Nivel de riesgo:** Verde/Amarillo/Rojo
+- **Contenido de purinas:** En mg/100g
+- **Índice de seguridad:** Score de 0 a 100 (basado en purinas, factores metabólicos y beneficios nutricionales)
+- **Alternativas más seguras:** Solo si el alimento es amarillo o rojo
+- **Contexto temporal:** Frecuencia recomendada de consumo
+- **Consejos de preparación:** Solo si cocinar de otra forma puede reducir purinas
+- **Factores metabólicos:** Solo si el alimento tiene efectos especiales en el ácido úrico
+- **Información nutricional:** Datos relevantes (proteínas, fructosa, vitamina C, omega-3)
 
 Esta respuesta se muestra inmediatamente en su pantalla y no se guarda en ningún lugar. El próximo segundo que cierre la aplicación o realice otra búsqueda, esa información desaparece de la memoria.
 
@@ -317,7 +327,7 @@ Esta transparencia es nuestra mejor garantía de que realmente respetamos su pri
 
 ---
 
-**IAGota - Versión 1.0.0**
+**IAGota - Versión 1.2.0**
 © 2025 - Desarrollado con ❤️ para la comunidad de personas que cuidan su ácido úrico
 *Esta Política de Privacidad está sujeta a las leyes de España y la Unión Europea.*
 🇪🇸 Aplicación desarrollada en España | 🇪🇺 GDPR & LOPD-GDD Compliant
@@ -385,7 +395,17 @@ You maintain complete control over your API key and can delete it at any time by
 
 ### QUERY PROCESSING
 
-The information flow when you make a query is as follows: you enter a food name, the application takes that text along with your API key, sends it via an encrypted HTTPS connection to OpenRouter, where AI models (such as GPT-4o y GPT-4o-mini) analyze the query and return structured information about purine content.
+The information flow when you make a query is as follows: you enter a food name, the application takes that text along with your API key, sends it via an encrypted HTTPS connection to OpenRouter, where AI models (GPT-4o-mini or GPT-4o) analyze the query and return extended structured information about purine content.
+
+**Information you receive (v1.2.0+):**
+- **Risk level:** Green/Yellow/Red
+- **Purine content:** In mg/100g
+- **Safety index:** Score from 0 to 100 (based on purines, metabolic factors, and nutritional benefits)
+- **Safer alternatives:** Only if the food is yellow or red
+- **Temporal context:** Recommended consumption frequency
+- **Preparation tips:** Only if cooking differently can reduce purines
+- **Metabolic factors:** Only if the food has special effects on uric acid
+- **Nutritional information:** Relevant data (proteins, fructose, vitamin C, omega-3)
 
 This response is immediately displayed on your screen and is not saved anywhere. The next second you close the application or perform another search, that information disappears from memory.
 
@@ -639,7 +659,7 @@ This transparency is our best guarantee that we truly respect your privacy as we
 
 ---
 
-**IAGota - Version 1.0.0**
+**IAGota - Version 1.2.0**
 © 2025 - Developed with ❤️ for the community of people who care about their uric acid
 *This Privacy Policy is subject to the laws of Spain and the European Union.*
 🇪🇸 Application developed in Spain | 🇪🇺 GDPR & LOPD-GDD Compliant

@@ -18,6 +18,11 @@ struct PhotoMenuView: View {
     @State private var analysisResult: MenuAnalysisResult? = nil
     @State private var errorMessage: String? = nil
 
+    // Progress tracking
+    @State private var progressMessage: String = "Iniciando análisis..."
+    @State private var currentDish: Int = 0
+    @State private var totalDishes: Int = 0
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -136,34 +141,95 @@ struct PhotoMenuView: View {
                     // Animación de semáforos girando
                     AnimatedTrafficLights()
 
-                    Text("Analizando carta...")
+                    Text(progressMessage)
                         .font(.headline)
                         .foregroundColor(.secondary)
-                    Text("Esto puede tardar 10-30 segundos")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+
+                    // Progress bar y contador si estamos analizando platos
+                    if totalDishes > 0 {
+                        VStack(spacing: 8) {
+                            // Barra de progreso
+                            GeometryReader { geometry in
+                                ZStack(alignment: .leading) {
+                                    // Background
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color(.systemGray5))
+                                        .frame(height: 8)
+
+                                    // Progress
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color.blue)
+                                        .frame(width: geometry.size.width * CGFloat(currentDish) / CGFloat(totalDishes), height: 8)
+                                        .animation(.easeInOut(duration: 0.3), value: currentDish)
+                                }
+                            }
+                            .frame(height: 8)
+                            .padding(.horizontal)
+
+                            // Contador
+                            Text("\(currentDish) de \(totalDishes) platos analizados")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+
+                            // Tiempo estimado
+                            let remainingDishes = totalDishes - currentDish
+                            let estimatedSeconds = remainingDishes * 1  // ~1 segundo por plato aproximadamente
+                            if estimatedSeconds > 0 {
+                                Text("Tiempo estimado: ~\(estimatedSeconds)s")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        .padding(.top, 10)
+                    } else {
+                        // Mensaje inicial
+                        Text("Esto puede tardar 30-60 segundos dependiendo del número de platos")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+                    }
                 }
                 .padding()
             } else {
-                // Botones
-                Button {
-                    analyzeMenu()
-                } label: {
-                    Text("Analizar esta carta")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                }
-                .padding(.horizontal)
+                VStack(spacing: 15) {
+                    // Aviso de tiempo
+                    HStack(spacing: 8) {
+                        Image(systemName: "clock.fill")
+                            .foregroundColor(.orange)
+                        Text("El análisis puede tardar 30-60 segundos")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(8)
+                    .padding(.horizontal)
 
-                Button {
-                    selectedImage = nil
-                } label: {
-                    Text("Cambiar foto")
-                        .foregroundColor(.blue)
+                    // Botón principal
+                    Button {
+                        analyzeMenu()
+                    } label: {
+                        Text("Analizar esta carta")
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                    }
+                    .padding(.horizontal)
+
+                    // Botón secundario
+                    Button {
+                        selectedImage = nil
+                    } label: {
+                        Text("Cambiar foto")
+                            .foregroundColor(.blue)
+                    }
                 }
             }
 
@@ -223,6 +289,9 @@ struct PhotoMenuView: View {
         }
 
         isAnalyzing = true
+        progressMessage = "Iniciando análisis..."
+        currentDish = 0
+        totalDishes = 0
 
         Task {
             do {
@@ -230,7 +299,12 @@ struct PhotoMenuView: View {
                 let visionModel = "openai/gpt-4o-mini"
                 let service = MenuAnalysisService(apiKey: apiKey, visionModel: visionModel)
 
-                let result = try await service.analyzeMenu(image: image)
+                let result = try await service.analyzeMenu(image: image) { message, current, total in
+                    // Callback de progreso
+                    self.progressMessage = message
+                    self.currentDish = current
+                    self.totalDishes = total
+                }
 
                 await MainActor.run {
                     self.analysisResult = result
@@ -255,6 +329,9 @@ struct PhotoMenuView: View {
         analysisResult = nil
         errorMessage = nil
         isAnalyzing = false
+        progressMessage = "Iniciando análisis..."
+        currentDish = 0
+        totalDishes = 0
     }
 }
 
