@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Política de Privacidad de IAGota - Privacy Policy - Aplicación para consultar contenido de purinas en alimentos">
+    <title>Política de Privacidad - Privacy Policy | IAGota</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #007AFF;
+            --dark-blue: #0051D5;
+            --light-blue: #E7F3FF;
+            --black: #000000;
+            --dark-gray: #1d1d1f;
+            --gray: #86868b;
+            --white: #ffffff;
+            --bg-light: #f5f5f7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f7;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 100px auto 0;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .language-selector button {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .language-selector button:first-child {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .language-selector button.active {
+            background: #007AFF;
+            color: white;
+        }
+
+        .language-selector button:first-child.active {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .language-selector button:last-child.active {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        h1 {
+            color: #007AFF;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            color: #1d1d1f;
+            font-size: 1.9em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            border-bottom: 3px solid #007AFF;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #1d1d1f;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #1d1d1f;
+            font-size: 1.05em;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .update-date {
+            color: #86868b;
+            font-size: 0.95em;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe5a0 100%);
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e7f3ff 0%, #cce5ff 100%);
+            border-left: 5px solid #007AFF;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .info-box strong {
+            color: #004085;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .compliance-box {
+            background: linear-gradient(135deg, #d4edda 0%, #b8dac4 100%);
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .compliance-box strong {
+            color: #155724;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.92em;
+            color: #c7254e;
+        }
+
+        pre {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 25px 0;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .no-data {
+            color: #d1453b;
+            font-weight: 600;
+        }
+
+        .yes-data {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .section-intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007AFF;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe9a6 100%);
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 0;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .warning-box-header {
+            background: #ff9800;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.15em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-box-content {
+            padding: 25px;
+        }
+
+        .warning-item {
+            background: white;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .warning-item strong {
+            color: #e65100;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .warning-item ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .warning-item ul li {
+            margin: 8px 0;
+            padding-left: 5px;
+        }
+
+        .warning-purpose {
+            background: #ffecb3;
+            border: 2px solid #ffa726;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #e65100;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom p {
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin-top: 80px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .language-selector {
+                position: static;
+                margin: 80px 20px 20px;
+                width: calc(100% - 40px);
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button onclick="switchLanguage('es')" id="btn-es" class="active">ES</button>
+        <button onclick="switchLanguage('en')" id="btn-en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">IAGota</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="https://github.com/686f6c61/IAGota" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- CONTENIDO EN ESPAÑOL -->
+        <div id="content-es" class="language-content active">
+            <h1>Política de Privacidad</h1>
+            <p class="update-date"><strong>Última actualización:</strong> 28 de octubre de 2025</p>
+
+            <div class="section-intro">
+                <p><strong>IAGota</strong> ("la Aplicación", "nosotros", "nuestro") es una herramienta educativa que respeta profundamente su privacidad y está comprometida con la máxima protección de sus datos personales. Esta Política de Privacidad ha sido diseñada para proporcionarle información completa y transparente sobre qué información recopilamos, cómo la utilizamos, con quién la compartimos y cuáles son sus derechos sobre sus datos.</p>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-box-header">
+                    ⚠️ NATURALEZA DE LA APLICACIÓN: EDUCACIONAL, NO MÉDICA
+                </div>
+                <div class="warning-box-content">
+                    <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>IAGota es una aplicación EDUCACIONAL</strong>, no una aplicación médica ni un dispositivo médico.</p>
+
+                    <h3 style="color: #e65100; margin-top: 25px; margin-bottom: 15px;">📊 Importante sobre los datos de purinas:</h3>
+
+                    <div class="warning-item">
+                        <strong>❌ NO proporciona datos exactos</strong>
+                        <p style="margin: 0;">Esta aplicación NO ofrece valores precisos o científicamente verificados del contenido de purinas en alimentos.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>✅ Información orientativa y aproximada</strong>
+                        <p style="margin: 0;">Proporciona estimaciones basadas en conocimiento general y datos de entrenamiento de modelos de IA.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>⚠️ La IA puede o NO conocer el alimento</strong>
+                        <p style="margin: 0;">Las respuestas son generadas por Inteligencia Artificial que puede tener información limitada o desactualizada sobre el alimento específico que consulta.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>📉 Los valores varían significativamente</strong>
+                        <p style="margin-bottom: 10px;">Las estimaciones pueden diferir de los valores reales según:</p>
+                        <ul style="margin-left: 20px;">
+                            <li>🌾 Variedad específica del alimento</li>
+                            <li>🍳 Método de preparación o cocción</li>
+                            <li>🌍 Origen geográfico y estacionalidad</li>
+                            <li>🍗 Parte específica del alimento (ejemplo: muslo vs. pechuga de pollo)</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-purpose">
+                        <strong>🎯 PROPÓSITO DE LA APLICACIÓN:</strong><br>
+                        Esta aplicación tiene como único objetivo ayudarle a tener una mejor orientación educativa sobre alimentos que puede o no conocer, pero <strong>NUNCA</strong> debe usarse como base única para decisiones médicas o dietéticas sin consultar a su médico o nutricionista profesional.
+                    </div>
+                </div>
+            </div>
+
+            <h2>INFORMACIÓN QUE RECOPILAMOS</h2>
+
+            <h3>API KEY DE OPENROUTER</h3>
+            <p>Su clave de API de OpenRouter es un elemento fundamental para el funcionamiento de la aplicación. Esta clave (que comienza con <code>sk-or-v1-</code>) es proporcionada voluntariamente por usted durante el proceso de configuración inicial de la aplicación.</p>
+
+            <p>La clave API se almacena <strong>exclusivamente en su dispositivo</strong> mediante el sistema UserDefaults de iOS, que es un mecanismo de almacenamiento local y seguro. Es importante destacar que esta clave nunca sale de su dispositivo excepto cuando se utiliza para autenticar solicitudes directas a OpenRouter. No tenemos acceso a ella, no la almacenamos en servidores remotos y no la compartimos con terceros más allá de su uso técnico necesario.</p>
+
+            <p>El propósito de almacenar su API key es permitir que la aplicación pueda autenticar y procesar sus consultas de alimentos a través de los servicios de inteligencia artificial de OpenRouter. Sin esta clave, la funcionalidad principal de la aplicación no podría operar.</p>
+
+            <h3>CONSULTAS DE ALIMENTOS</h3>
+            <p>Cuando utiliza la aplicación para consultar información sobre alimentos, los nombres o descripciones de los alimentos que ingresa en el campo de texto se envían temporalmente a OpenRouter para su procesamiento mediante modelos de inteligencia artificial.</p>
+
+            <p>Es fundamental que comprenda que <strong class="no-data">NO almacenamos sus consultas</strong> en ningún servidor bajo nuestro control. Las consultas existen únicamente en la memoria temporal de su dispositivo durante el procesamiento y se transmiten de forma segura (mediante HTTPS) a OpenRouter para obtener la respuesta. Una vez que recibe el resultado con la información sobre purinas, ni la consulta ni la respuesta se guardan de forma permanente.</p>
+
+            <p>Esta arquitectura de "cero almacenamiento" garantiza su privacidad máxima, ya que no mantenemos ningún historial de sus búsquedas ni de sus hábitos alimenticios.</p>
+
+            <h2>CÓMO USAMOS SU INFORMACIÓN</h2>
+
+            <h3>USO DE LA API KEY</h3>
+            <p>La API key de OpenRouter que proporciona tiene un único propósito: autenticar sus solicitudes cuando la aplicación se comunica con los servidores de OpenRouter para procesar sus consultas sobre alimentos. Esta clave permanece almacenada de forma segura en su dispositivo iOS en todo momento.</p>
+
+            <p>Nunca transmitimos su API key a servidores propios porque, sencillamente, no disponemos de ningún servidor backend. IAGota es una aplicación completamente client-side (del lado del cliente), lo que significa que toda la lógica se ejecuta en su dispositivo y las únicas comunicaciones externas son directamente con OpenRouter.</p>
+
+            <p>Usted mantiene el control total sobre su API key y puede eliminarla en cualquier momento accediendo a Configuración → Zona de Peligro → Eliminar API Key. Esta acción es irreversible desde nuestra perspectiva, ya que al estar almacenada localmente, su eliminación significa que no tenemos forma de recuperarla.</p>
+
+            <h3>PROCESAMIENTO DE CONSULTAS</h3>
+            <p>El flujo de información cuando realiza una consulta es el siguiente: usted ingresa el nombre de un alimento, la aplicación toma ese texto junto con su API key, lo envía mediante una conexión HTTPS encriptada a OpenRouter, donde los modelos de IA (GPT-4o-mini o GPT-4o) analizan la consulta y devuelven información estructurada extendida sobre el contenido de purinas.</p>
+
+            <p><strong>Información que recibe (v1.2.0+):</strong></p>
+            <ul>
+                <li><strong>Nivel de riesgo:</strong> Verde/Amarillo/Rojo</li>
+                <li><strong>Contenido de purinas:</strong> En mg/100g</li>
+                <li><strong>Índice de seguridad:</strong> Score de 0 a 100 (basado en purinas, factores metabólicos y beneficios nutricionales)</li>
+                <li><strong>Alternativas más seguras:</strong> Solo si el alimento es amarillo o rojo</li>
+                <li><strong>Contexto temporal:</strong> Frecuencia recomendada de consumo</li>
+                <li><strong>Consejos de preparación:</strong> Solo si cocinar de otra forma puede reducir purinas</li>
+                <li><strong>Factores metabólicos:</strong> Solo si el alimento tiene efectos especiales en el ácido úrico</li>
+                <li><strong>Información nutricional:</strong> Datos relevantes (proteínas, fructosa, vitamina C, omega-3)</li>
+            </ul>
+
+            <p>Esta respuesta se muestra inmediatamente en su pantalla y no se guarda en ningún lugar. El próximo segundo que cierre la aplicación o realice otra búsqueda, esa información desaparece de la memoria.</p>
+
+            <h2>COMPARTIR INFORMACIÓN CON TERCEROS</h2>
+
+            <h3>OPENROUTER - NUESTRO PROVEEDOR DE IA</h3>
+            <p>OpenRouter es nuestro único socio tecnológico y el único tercero con el que se comparte información de sus consultas. OpenRouter actúa como intermediario que proporciona acceso unificado a múltiples proveedores de modelos de inteligencia artificial (OpenAI, Anthropic, DeepSeek, entre otros).</p>
+
+            <div class="compliance-box" style="background: #e8f5e9; border-left: 4px solid #28a745;">
+                <strong>✓ CONSULTAS COMPLETAMENTE ANÓNIMAS</strong>
+                <p style="margin-top: 10px;"><strong class="yes-data">IMPORTANTE: NO enviamos ningún dato identificativo a OpenRouter.</strong></p>
+                <p>Cuando realiza una consulta, <strong>únicamente se envía</strong>:</p>
+                <ul>
+                    <li>✅ El texto del alimento, plato, ingredientes o descripción que usted escribe</li>
+                    <li>✅ Su API key de OpenRouter (para autenticación técnica del servicio)</li>
+                </ul>
+                <p><strong class="no-data">NO se envía bajo ninguna circunstancia:</strong></p>
+                <ul>
+                    <li>❌ Nombre, apellidos o identidad personal</li>
+                    <li>❌ Dirección de correo electrónico</li>
+                    <li>❌ Número de teléfono</li>
+                    <li>❌ Ubicación geográfica (GPS, IP)</li>
+                    <li>❌ Identificadores de dispositivo (IMEI, MAC address)</li>
+                    <li>❌ Datos de salud o historial médico</li>
+                    <li>❌ Historial de búsquedas anteriores</li>
+                    <li>❌ Ningún otro dato personal</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Cada consulta es completamente independiente, anónima y desvinculada de su identidad.</strong> OpenRouter recibe solo el texto de la consulta y no tiene forma de identificarle ni de asociar múltiples consultas con la misma persona.</p>
+            </div>
+
+            <p><strong>¿Qué información compartimos con OpenRouter?</strong></p>
+            <ul>
+                <li><strong>Consulta de alimentos:</strong> Únicamente el texto que ingresa (ejemplo: "pollo", "lentejas", "salmón"). Sin contexto adicional, sin identificadores personales.</li>
+                <li><strong>API key:</strong> Su clave de OpenRouter para autenticación técnica del servicio (esta clave la proporciona OpenRouter y está bajo su control).</li>
+                <li><strong>Metadatos técnicos mínimos:</strong> Información estrictamente necesaria para el funcionamiento del protocolo HTTPS (como cabeceras HTTP estándar), pero sin datos personales.</li>
+            </ul>
+
+            <p><strong>Importante:</strong> OpenRouter procesa esta información según sus propias políticas de privacidad y términos de servicio, que puede consultar en:</p>
+            <ul>
+                <li>Política de privacidad: <a href="https://openrouter.ai/privacy" target="_blank">https://openrouter.ai/privacy</a></li>
+                <li>Términos de servicio: <a href="https://openrouter.ai/terms" target="_blank">https://openrouter.ai/terms</a></li>
+            </ul>
+
+            <div class="compliance-box">
+                <strong>✓ CUMPLIMIENTO NORMATIVO DE OPENROUTER</strong>
+                <p>OpenRouter es una plataforma que cumple con las principales regulaciones internacionales de protección de datos:</p>
+                <ul>
+                    <li><strong>SOC 2 Type II Compliant:</strong> OpenRouter ha sido auditado y certificado bajo el estándar SOC 2 Type II, que verifica controles rigurosos sobre seguridad, disponibilidad, integridad de procesamiento, confidencialidad y privacidad.</li>
+                    <li><strong>GDPR Compliant:</strong> Cumple totalmente con el Reglamento General de Protección de Datos de la Unión Europea. Para clientes enterprise, OpenRouter ofrece enrutamiento en región EU (EU in-region routing), garantizando que los datos nunca salen de la Unión Europea.</li>
+                    <li><strong>CCPA Compliant:</strong> Cumple con la California Consumer Privacy Act y otras leyes estatales de privacidad de Estados Unidos.</li>
+                    <li><strong>Zero Data Retention (ZDR):</strong> OpenRouter ofrece controles de retención cero de datos. Por defecto, NO registra (no logging) prompts ni respuestas a menos que el usuario opte explícitamente por el logging a cambio de un 1% de descuento.</li>
+                    <li><strong>Cláusulas Contractuales Estándar:</strong> Para transferencias internacionales de datos, OpenRouter utiliza las cláusulas contractuales estándar aprobadas por la Comisión Europea bajo el Artículo 46 del GDPR.</li>
+                </ul>
+            </div>
+
+            <h3>OTROS TERCEROS</h3>
+            <p>Queremos ser absolutamente claros en este punto: <strong class="no-data">NO compartimos sus datos con ningún otro tercero</strong> más allá de OpenRouter. Específicamente:</p>
+            <ul>
+                <li class="no-data">❌ NO vendemos sus datos a nadie</li>
+                <li class="no-data">❌ NO utilizamos sus datos para publicidad dirigida</li>
+                <li class="no-data">❌ NO enviamos sus datos a servidores propios (no tenemos servidores)</li>
+                <li class="no-data">❌ NO compartimos información con redes publicitarias</li>
+                <li class="no-data">❌ NO rastreamos su comportamiento con cookies o identificadores</li>
+                <li class="no-data">❌ NO integramos analytics de terceros (Google Analytics, Facebook Pixel, etc.)</li>
+            </ul>
+
+            <h2>DATOS QUE NO RECOPILAMOS</h2>
+            <p>En el espíritu de máxima transparencia, consideramos importante especificar claramente qué tipos de datos <strong class="no-data">NO recopilamos bajo ninguna circunstancia:</strong></p>
+            <ul>
+                <li class="no-data">❌ Nombre completo, apellidos o alias</li>
+                <li class="no-data">❌ Dirección de correo electrónico (excepto si nos contacta voluntariamente por email)</li>
+                <li class="no-data">❌ Número de teléfono</li>
+                <li class="no-data">❌ Dirección física o código postal</li>
+                <li class="no-data">❌ Ubicación GPS o geolocalización</li>
+                <li class="no-data">❌ Datos de salud, diagnósticos médicos o historial clínico</li>
+                <li class="no-data">❌ Fotografías o imágenes: La app SÍ accede a la cámara para fotografiar cartas de restaurante, pero las fotos NO se guardan</li>
+                <li class="no-data">❌ Contactos de su agenda</li>
+                <li class="no-data">❌ Acceso a archivos o documentos</li>
+                <li class="no-data">❌ Información de uso o analytics (cuántas veces usa la app, qué pantallas visita, etc.)</li>
+                <li class="no-data">❌ Identificador de dispositivo (IDFA, UDID)</li>
+                <li class="no-data">❌ Cookies, web beacons o tecnologías de seguimiento similares</li>
+            </ul>
+
+            <h2>SUS DERECHOS SOBRE SUS DATOS</h2>
+            <p>Usted tiene derechos fundamentales sobre su información personal. Aunque recopilamos datos mínimos, estos son sus derechos:</p>
+
+            <h3>DERECHO DE ACCESO</h3>
+            <p>Puede ver su API key almacenada en cualquier momento accediendo a Configuración en la aplicación. Por seguridad, la clave se muestra parcialmente oculta (solo los primeros 12 y últimos 4 caracteres son visibles).</p>
+
+            <h3>DERECHO DE ELIMINACIÓN</h3>
+            <p>Puede eliminar completamente su API key y todos los datos de la aplicación de dos formas:</p>
+            <ol>
+                <li><strong>Método 1 (Recomendado):</strong> Abra la aplicación → Configuración → Zona de Peligro → Eliminar API Key</li>
+                <li><strong>Método 2:</strong> Desinstale la aplicación de su dispositivo. Esto eliminará automáticamente todos los datos locales.</li>
+            </ol>
+
+            <h3>DERECHO DE PORTABILIDAD</h3>
+            <p>Su API key es completamente portable. Puede usarla en otras aplicaciones o servicios que soporten OpenRouter sin restricción alguna por nuestra parte.</p>
+
+            <h3>DERECHO DE REVOCACIÓN</h3>
+            <p>Puede revocar completamente su API key (invalidarla para que no funcione en ningún lugar) accediendo directamente al panel de OpenRouter en <a href="https://openrouter.ai/keys" target="_blank">https://openrouter.ai/keys</a> y eliminándola desde allí.</p>
+
+            <h2>CUMPLIMIENTO LEGAL Y REGULATORIO</h2>
+
+            <h3>RGPD (REGLAMENTO GENERAL DE PROTECCIÓN DE DATOS - UE)</h3>
+            <p>Si se encuentra en la Unión Europea, Reino Unido, o cualquier país del Espacio Económico Europeo, tiene derechos adicionales bajo el RGPD:</p>
+            <ul>
+                <li><strong>Derecho al olvido:</strong> Puede solicitar la eliminación completa de sus datos en cualquier momento.</li>
+                <li><strong>Derecho a la portabilidad de datos:</strong> Sus datos pueden ser transferidos a otro controlador de datos si así lo solicita.</li>
+                <li><strong>Derecho a restringir el procesamiento:</strong> Puede limitar cómo procesamos sus datos bajo ciertas circunstancias.</li>
+                <li><strong>Derecho a oponerse:</strong> Puede oponerse al procesamiento de sus datos personales.</li>
+                <li><strong>Derecho a no ser sujeto de decisiones automatizadas:</strong> Aunque usamos IA para proporcionar información, usted no está sujeto a decisiones automatizadas que tengan efectos legales significativos.</li>
+            </ul>
+
+            <h3>CCPA (CALIFORNIA CONSUMER PRIVACY ACT - EE.UU.)</h3>
+            <p>Si reside en California, Estados Unidos, tiene derechos adicionales bajo la CCPA:</p>
+            <ul>
+                <li><strong>Derecho a saber:</strong> Tiene derecho a conocer qué categorías de información personal recopilamos, las fuentes de donde proviene, para qué la usamos y con quién la compartimos.</li>
+                <li><strong>Derecho a eliminar:</strong> Puede solicitar que eliminemos la información personal que hayamos recopilado de usted.</li>
+                <li><strong>Derecho a optar por no participar en la venta:</strong> Aunque no aplicable en nuestro caso ya que <strong class="no-data">NO vendemos sus datos bajo ninguna circunstancia.</strong></li>
+                <li><strong>Derecho a no discriminación:</strong> No lo discriminaremos por ejercer cualquiera de sus derechos bajo la CCPA.</li>
+            </ul>
+
+            <h3>LOPD-GDD Y NORMATIVA ESPAÑOLA</h3>
+            <p>Como aplicación desarrollada en España, cumplimos con la Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales (LOPD-GDD). El responsable del tratamiento de datos es el desarrollador de la aplicación, cuyos datos de contacto se proporcionan más abajo.</p>
+
+            <div class="warning-box">
+                <strong>⚠️ AVISO MÉDICO IMPORTANTE</strong>
+                <p>Esta aplicación NO recopila datos de salud porque NO es un dispositivo médico ni proporciona diagnósticos, tratamientos ni consejo médico profesional.</p>
+                <p>Las consultas que realiza sobre alimentos son solicitudes de información educativa general sobre contenido de purinas y no constituyen datos de salud protegidos bajo HIPAA o regulaciones similares.</p>
+                <p>La información proporcionada por la aplicación es generada por inteligencia artificial y puede contener errores. <strong>SIEMPRE debe consultar a su médico o nutricionista antes de hacer cambios en su dieta</strong>, especialmente si tiene gota, hiperuricemia u otros problemas de salud.</p>
+            </div>
+
+            <h2>SEGURIDAD Y PROTECCIÓN DE DATOS</h2>
+
+            <h3>ALMACENAMIENTO LOCAL SEGURO</h3>
+            <p>Su API key se almacena utilizando UserDefaults de iOS, que es un sistema de almacenamiento local protegido por las capas de seguridad del sistema operativo iOS. Para maximizar la protección:</p>
+            <ul>
+                <li>Los datos nunca se sincronizan con iCloud ni con ningún otro servicio de Apple</li>
+                <li>Los datos permanecen en su dispositivo físico exclusivamente</li>
+                <li>El acceso a los datos requiere que su dispositivo esté desbloqueado</li>
+                <li>Si su dispositivo está protegido con Face ID, Touch ID o código de acceso, esto añade una capa adicional de seguridad</li>
+            </ul>
+
+            <h3>TRANSMISIÓN ENCRIPTADA</h3>
+            <p>Todas las comunicaciones entre la aplicación y OpenRouter se realizan mediante HTTPS (HTTP Secure) con cifrado TLS 1.2 o superior. Esto significa que:</p>
+            <ul>
+                <li>Sus consultas están encriptadas en tránsito</li>
+                <li>Su API key está protegida durante la transmisión</li>
+                <li>Terceros que intercepten el tráfico no pueden leer el contenido</li>
+            </ul>
+
+            <h3>RESPONSABILIDAD DEL USUARIO</h3>
+            <p>Aunque implementamos medidas de seguridad robustas, la seguridad completa también depende de usted:</p>
+            <ul>
+                <li>Mantenga su dispositivo iOS actualizado con la última versión del sistema</li>
+                <li>Use Face ID, Touch ID o un código de acceso fuerte en su dispositivo</li>
+                <li>No comparta su dispositivo desbloqueado con personas no autorizadas</li>
+                <li>Revoque su API key de OpenRouter si sospecha que ha sido comprometida</li>
+            </ul>
+
+            <h2>ARQUITECTURA DE PRIVACIDAD</h2>
+            <p>Para proporcionar máxima transparencia, aquí está el flujo técnico completo de cómo funcionan los datos en IAGota:</p>
+            <pre>
+┌─────────────────────────────┐
+│    SU DISPOSITIVO iOS       │
+│                             │
+│  ┌──────────────────────┐  │
+│  │ API Key (local)      │  │
+│  │ UserDefaults         │  │
+│  └──────────────────────┘  │
+│                             │
+│  ┌──────────────────────┐  │
+│  │ Consulta: "tomate"   │  │
+│  └──────────────────────┘  │
+│            ↓                │
+│     HTTPS encriptado        │
+│            ↓                │
+└─────────────┬───────────────┘
+              ↓
+    ┌─────────────────────────┐
+    │   OPENROUTER API        │
+    │   (SOC2 + GDPR)         │
+    │                         │
+    │  Procesamiento con:     │
+    │  • GPT-4o              │
+    │  • Claude 3.5 Sonnet   │
+    │  • DeepSeek V3.1       │
+    └──────────┬──────────────┘
+              ↓
+    ┌─────────────────────────┐
+    │   RESPUESTA             │
+    │                         │
+    │  {                      │
+    │    "nivel": "verde",    │
+    │    "purinas": 11,       │
+    │    "categoria": "Seguro"│
+    │  }                      │
+    └──────────┬──────────────┘
+              ↓
+    ┌─────────────────────────┐
+    │   SU DISPOSITIVO iOS    │
+    │                         │
+    │   Se muestra en pantalla│
+    │   NO se guarda          │
+    └─────────────────────────┘
+
+┌─────────────────────────────┐
+│  NUESTROS SERVIDORES        │
+│                             │
+│  ❌ NO EXISTEN              │
+│  ❌ NO ALMACENAMOS NADA     │
+└─────────────────────────────┘
+            </pre>
+
+            <h2>CAMBIOS A ESTA POLÍTICA</h2>
+            <p>Nos reservamos el derecho de actualizar esta Política de Privacidad ocasionalmente para reflejar cambios en nuestras prácticas, requisitos legales o mejoras en la aplicación. Le notificaremos sobre cambios significativos mediante:</p>
+            <ul>
+                <li>Actualización de la fecha de "Última actualización" en la parte superior de este documento</li>
+                <li>Un aviso destacado dentro de la aplicación para cambios materiales que afecten sus derechos</li>
+                <li>Si es requerido por ley, solicitaremos su consentimiento renovado para los cambios</li>
+            </ul>
+            <p>El uso continuado de la aplicación después de la publicación de cambios constituye su aceptación de la nueva Política de Privacidad actualizada. Le recomendamos revisar este documento periódicamente.</p>
+
+            <h2>MENORES DE EDAD</h2>
+            <p>Esta aplicación no está diseñada ni dirigida a personas menores de 13 años de edad. No recopilamos intencionalmente información personal de menores de 13 años.</p>
+            <p>Si usted es padre, madre o tutor legal y descubre que su hijo menor de 13 años ha proporcionado información a través de la aplicación, por favor contáctenos inmediatamente a <a href="mailto:iagota@00b.tech">iagota@00b.tech</a> para que podamos eliminar dicha información.</p>
+
+            <h2>CONTACTO</h2>
+            <p>Si tiene preguntas, comentarios o inquietudes sobre esta Política de Privacidad, sobre cómo manejamos sus datos, o si desea ejercer cualquiera de sus derechos, puede contactarnos a través de:</p>
+            <ul>
+                <li><strong>Email principal:</strong> <a href="mailto:iagota@00b.tech">iagota@00b.tech</a></li>
+                <li><strong>Repositorio GitHub (issues):</strong> <a href="https://github.com/686f6c61/IAGota/issues" target="_blank">https://github.com/686f6c61/IAGota/issues</a></li>
+            </ul>
+            <p><strong>Tiempo de respuesta comprometido:</strong> Nos esforzamos por responder a todas las consultas en un plazo máximo de 7 días hábiles. Para solicitudes urgentes relacionadas con la eliminación de datos o ejercicio de derechos bajo GDPR/CCPA, responderemos en un plazo de 72 horas.</p>
+
+            <div class="info-box">
+                <strong>TRANSPARENCIA: CÓDIGO FUENTE ABIERTO</strong>
+                <p>IAGota es una aplicación de código abierto. Esto significa que cualquier persona con conocimientos técnicos puede inspeccionar exactamente cómo funciona la aplicación, verificar que cumplimos con lo declarado en esta Política de Privacidad y auditar la seguridad del código.</p>
+                <p>El código fuente completo está disponible públicamente en: <a href="https://github.com/686f6c61/IAGota" target="_blank">https://github.com/686f6c61/IAGota</a></p>
+                <p>Esta transparencia es nuestra mejor garantía de que realmente respetamos su privacidad tal como lo declaramos.</p>
+            </div>
+        </div>
+
+        <!-- CONTENIDO EN INGLÉS -->
+        <div id="content-en" class="language-content">
+            <h1>Privacy Policy</h1>
+            <p class="update-date"><strong>Last updated:</strong> October 28, 2025</p>
+
+            <div class="section-intro">
+                <p><strong>IAGota</strong> ("the Application", "we", "our") is an educational tool that deeply respects your privacy and is committed to the highest protection of your personal data. This Privacy Policy is designed to provide you with complete and transparent information about what information we collect, how we use it, who we share it with, and what your rights are regarding your data.</p>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-box-header">
+                    ⚠️ NATURE OF THE APPLICATION: EDUCATIONAL, NOT MEDICAL
+                </div>
+                <div class="warning-box-content">
+                    <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>IAGota is an EDUCATIONAL application</strong>, not a medical application or medical device.</p>
+
+                    <h3 style="color: #e65100; margin-top: 25px; margin-bottom: 15px;">📊 Important about purine data:</h3>
+
+                    <div class="warning-item">
+                        <strong>❌ Does NOT provide exact data</strong>
+                        <p style="margin: 0;">This application does NOT offer precise or scientifically verified values of purine content in foods.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>✅ Approximate and guidance information</strong>
+                        <p style="margin: 0;">Provides estimates based on general knowledge and AI model training data.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>⚠️ AI may or may NOT know the food</strong>
+                        <p style="margin: 0;">Responses are generated by Artificial Intelligence that may have limited or outdated information about the specific food you query.</p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>📉 Values vary significantly</strong>
+                        <p style="margin-bottom: 10px;">Estimates may differ from actual values depending on:</p>
+                        <ul style="margin-left: 20px;">
+                            <li>🌾 Specific variety of the food</li>
+                            <li>🍳 Preparation or cooking method</li>
+                            <li>🌍 Geographic origin and seasonality</li>
+                            <li>🍗 Specific part of the food (example: chicken thigh vs. breast)</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-purpose">
+                        <strong>🎯 APPLICATION PURPOSE:</strong><br>
+                        The application's sole purpose is to help you gain better educational guidance about foods you may or may not know, but should <strong>NEVER</strong> be used as the sole basis for medical or dietary decisions without consulting your doctor or professional nutritionist.
+                    </div>
+                </div>
+            </div>
+
+            <h2>INFORMATION WE COLLECT</h2>
+
+            <h3>OPENROUTER API KEY</h3>
+            <p>Your OpenRouter API key is a fundamental element for the application's functionality. This key (which begins with <code>sk-or-v1-</code>) is voluntarily provided by you during the initial configuration process of the application.</p>
+
+            <p>The API key is stored <strong>exclusively on your device</strong> using iOS's UserDefaults system, which is a local and secure storage mechanism. It's important to note that this key never leaves your device except when used to authenticate direct requests to OpenRouter. We don't have access to it, we don't store it on remote servers, and we don't share it with third parties beyond its necessary technical use.</p>
+
+            <p>The purpose of storing your API key is to allow the application to authenticate and process your food queries through OpenRouter's artificial intelligence services. Without this key, the application's main functionality could not operate.</p>
+
+            <h3>FOOD QUERIES</h3>
+            <p>When you use the application to query information about foods, the names or descriptions of foods you enter in the text field are temporarily sent to OpenRouter for processing through artificial intelligence models.</p>
+
+            <p>It's essential that you understand we <strong class="no-data">DO NOT store your queries</strong> on any server under our control. Queries exist only in your device's temporary memory during processing and are securely transmitted (via HTTPS) to OpenRouter to obtain the response. Once you receive the result with purine information, neither the query nor the response is permanently saved.</p>
+
+            <p>This "zero storage" architecture guarantees your maximum privacy, as we don't maintain any history of your searches or eating habits.</p>
+
+            <h2>HOW WE USE YOUR INFORMATION</h2>
+
+            <h3>USE OF API KEY</h3>
+            <p>The OpenRouter API key you provide has a single purpose: to authenticate your requests when the application communicates with OpenRouter servers to process your food queries. This key remains securely stored on your iOS device at all times.</p>
+
+            <p>We never transmit your API key to our own servers because, simply put, we don't have any backend servers. IAGota is a completely client-side application, meaning all logic runs on your device and the only external communications are directly with OpenRouter.</p>
+
+            <p>You maintain complete control over your API key and can delete it at any time by accessing Settings → Danger Zone → Delete API Key. This action is irreversible from our perspective, as being stored locally, its deletion means we have no way to recover it.</p>
+
+            <h3>QUERY PROCESSING</h3>
+            <p>The information flow when you make a query is as follows: you enter a food name, the application takes that text along with your API key, sends it via an encrypted HTTPS connection to OpenRouter, where AI models (GPT-4o-mini or GPT-4o) analyze the query and return extended structured information about purine content.</p>
+
+            <p><strong>Information you receive (v1.2.0+):</strong></p>
+            <ul>
+                <li><strong>Risk level:</strong> Green/Yellow/Red</li>
+                <li><strong>Purine content:</strong> In mg/100g</li>
+                <li><strong>Safety index:</strong> Score from 0 to 100 (based on purines, metabolic factors, and nutritional benefits)</li>
+                <li><strong>Safer alternatives:</strong> Only if the food is yellow or red</li>
+                <li><strong>Temporal context:</strong> Recommended consumption frequency</li>
+                <li><strong>Preparation tips:</strong> Only if cooking differently can reduce purines</li>
+                <li><strong>Metabolic factors:</strong> Only if the food has special effects on uric acid</li>
+                <li><strong>Nutritional information:</strong> Relevant data (proteins, fructose, vitamin C, omega-3)</li>
+            </ul>
+
+            <p>This response is immediately displayed on your screen and is not saved anywhere. The next second you close the application or perform another search, that information disappears from memory.</p>
+
+            <h2>SHARING INFORMATION WITH THIRD PARTIES</h2>
+
+            <h3>OPENROUTER - OUR AI PROVIDER</h3>
+            <p>OpenRouter is our only technology partner and the only third party with whom your query information is shared. OpenRouter acts as an intermediary providing unified access to multiple artificial intelligence model providers (OpenAI, Anthropic, DeepSeek, among others).</p>
+
+            <div class="compliance-box" style="background: #e8f5e9; border-left: 4px solid #28a745;">
+                <strong>✓ COMPLETELY ANONYMOUS QUERIES</strong>
+                <p style="margin-top: 10px;"><strong class="yes-data">IMPORTANT: We DO NOT send any identifying data to OpenRouter.</strong></p>
+                <p>When you make a query, <strong>only the following is sent</strong>:</p>
+                <ul>
+                    <li>✅ The text of the food, dish, ingredients, or description you write</li>
+                    <li>✅ Your OpenRouter API key (for technical service authentication)</li>
+                </ul>
+                <p><strong class="no-data">NEVER sent under any circumstances:</strong></p>
+                <ul>
+                    <li>❌ Name, surname, or personal identity</li>
+                    <li>❌ Email address</li>
+                    <li>❌ Phone number</li>
+                    <li>❌ Geographic location (GPS, IP)</li>
+                    <li>❌ Device identifiers (IMEI, MAC address)</li>
+                    <li>❌ Health data or medical history</li>
+                    <li>❌ Previous search history</li>
+                    <li>❌ Any other personal data</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Each query is completely independent, anonymous, and disconnected from your identity.</strong> OpenRouter receives only the query text and has no way to identify you or associate multiple queries with the same person.</p>
+            </div>
+
+            <p><strong>What information do we share with OpenRouter?</strong></p>
+            <ul>
+                <li><strong>Food query:</strong> Only the text you enter (example: "chicken", "lentils", "salmon"). No additional context, no personal identifiers.</li>
+                <li><strong>API key:</strong> Your OpenRouter key for technical service authentication (this key is provided by OpenRouter and is under your control).</li>
+                <li><strong>Minimal technical metadata:</strong> Information strictly necessary for HTTPS protocol operation (such as standard HTTP headers), but without personal data.</li>
+            </ul>
+
+            <p><strong>Important:</strong> OpenRouter processes this information according to its own privacy policies and terms of service, which you can review at:</p>
+            <ul>
+                <li>Privacy Policy: <a href="https://openrouter.ai/privacy" target="_blank">https://openrouter.ai/privacy</a></li>
+                <li>Terms of Service: <a href="https://openrouter.ai/terms" target="_blank">https://openrouter.ai/terms</a></li>
+            </ul>
+
+            <div class="compliance-box">
+                <strong>✓ OPENROUTER REGULATORY COMPLIANCE</strong>
+                <p>OpenRouter is a platform that complies with major international data protection regulations:</p>
+                <ul>
+                    <li><strong>SOC 2 Type II Compliant:</strong> OpenRouter has been audited and certified under the SOC 2 Type II standard, which verifies rigorous controls over security, availability, processing integrity, confidentiality, and privacy.</li>
+                    <li><strong>GDPR Compliant:</strong> Fully complies with the European Union's General Data Protection Regulation. For enterprise customers, OpenRouter offers EU in-region routing, ensuring data never leaves the European Union.</li>
+                    <li><strong>CCPA Compliant:</strong> Complies with the California Consumer Privacy Act and other U.S. state privacy laws.</li>
+                    <li><strong>Zero Data Retention (ZDR):</strong> OpenRouter offers zero data retention controls. By default, it does NOT log prompts or responses unless the user explicitly opts into logging in exchange for a 1% discount.</li>
+                    <li><strong>Standard Contractual Clauses:</strong> For international data transfers, OpenRouter uses standard contractual clauses approved by the European Commission under Article 46 of GDPR.</li>
+                </ul>
+            </div>
+
+            <h3>OTHER THIRD PARTIES</h3>
+            <p>We want to be absolutely clear on this point: <strong class="no-data">WE DO NOT share your data with any other third party</strong> beyond OpenRouter. Specifically:</p>
+            <ul>
+                <li class="no-data">❌ We DO NOT sell your data to anyone</li>
+                <li class="no-data">❌ We DO NOT use your data for targeted advertising</li>
+                <li class="no-data">❌ We DO NOT send your data to our own servers (we don't have servers)</li>
+                <li class="no-data">❌ We DO NOT share information with advertising networks</li>
+                <li class="no-data">❌ We DO NOT track your behavior with cookies or identifiers</li>
+                <li class="no-data">❌ We DO NOT integrate third-party analytics (Google Analytics, Facebook Pixel, etc.)</li>
+            </ul>
+
+            <h2>DATA WE DO NOT COLLECT</h2>
+            <p>In the spirit of maximum transparency, we consider it important to clearly specify what types of data <strong class="no-data">WE DO NOT collect under any circumstances:</strong></p>
+            <ul>
+                <li class="no-data">❌ Full name, surnames, or aliases</li>
+                <li class="no-data">❌ Email address (except if you voluntarily contact us by email)</li>
+                <li class="no-data">❌ Phone number</li>
+                <li class="no-data">❌ Physical address or postal code</li>
+                <li class="no-data">❌ GPS location or geolocation</li>
+                <li class="no-data">❌ Health data, medical diagnoses, or clinical history</li>
+                <li class="no-data">❌ Photographs or images: The app DOES access the camera to photograph restaurant menus, but photos are NOT saved</li>
+                <li class="no-data">❌ Contacts from your address book</li>
+                <li class="no-data">❌ Access to files or documents</li>
+                <li class="no-data">❌ Usage information or analytics (how many times you use the app, which screens you visit, etc.)</li>
+                <li class="no-data">❌ Device identifier (IDFA, UDID)</li>
+                <li class="no-data">❌ Cookies, web beacons, or similar tracking technologies</li>
+            </ul>
+
+            <h2>YOUR RIGHTS REGARDING YOUR DATA</h2>
+            <p>You have fundamental rights regarding your personal information. Although we collect minimal data, these are your rights:</p>
+
+            <h3>RIGHT OF ACCESS</h3>
+            <p>You can view your stored API key at any time by accessing Settings in the application. For security, the key is displayed partially hidden (only the first 12 and last 4 characters are visible).</p>
+
+            <h3>RIGHT OF DELETION</h3>
+            <p>You can completely delete your API key and all application data in two ways:</p>
+            <ol>
+                <li><strong>Method 1 (Recommended):</strong> Open the application → Settings → Danger Zone → Delete API Key</li>
+                <li><strong>Method 2:</strong> Uninstall the application from your device. This will automatically delete all local data.</li>
+            </ol>
+
+            <h3>RIGHT OF PORTABILITY</h3>
+            <p>Your API key is completely portable. You can use it in other applications or services that support OpenRouter without any restriction on our part.</p>
+
+            <h3>RIGHT OF REVOCATION</h3>
+            <p>You can completely revoke your API key (invalidate it so it doesn't work anywhere) by directly accessing the OpenRouter panel at <a href="https://openrouter.ai/keys" target="_blank">https://openrouter.ai/keys</a> and deleting it from there.</p>
+
+            <h2>LEGAL AND REGULATORY COMPLIANCE</h2>
+
+            <h3>GDPR (GENERAL DATA PROTECTION REGULATION - EU)</h3>
+            <p>If you are in the European Union, United Kingdom, or any European Economic Area country, you have additional rights under GDPR:</p>
+            <ul>
+                <li><strong>Right to be forgotten:</strong> You can request complete deletion of your data at any time.</li>
+                <li><strong>Right to data portability:</strong> Your data can be transferred to another data controller if you request it.</li>
+                <li><strong>Right to restrict processing:</strong> You can limit how we process your data under certain circumstances.</li>
+                <li><strong>Right to object:</strong> You can object to the processing of your personal data.</li>
+                <li><strong>Right not to be subject to automated decisions:</strong> Although we use AI to provide information, you are not subject to automated decisions that have significant legal effects.</li>
+            </ul>
+
+            <h3>CCPA (CALIFORNIA CONSUMER PRIVACY ACT - USA)</h3>
+            <p>If you reside in California, United States, you have additional rights under CCPA:</p>
+            <ul>
+                <li><strong>Right to know:</strong> You have the right to know what categories of personal information we collect, the sources from which it comes, what we use it for, and with whom we share it.</li>
+                <li><strong>Right to delete:</strong> You can request that we delete the personal information we have collected from you.</li>
+                <li><strong>Right to opt-out of sale:</strong> Not applicable in our case as we <strong class="no-data">DO NOT sell your data under any circumstances.</strong></li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your rights under CCPA.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT MEDICAL NOTICE</strong>
+                <p>This application DOES NOT collect health data because it is NOT a medical device nor does it provide diagnoses, treatments, or professional medical advice.</p>
+                <p>The queries you make about foods are requests for general educational information about purine content and do not constitute protected health data under HIPAA or similar regulations.</p>
+                <p>The information provided by the application is generated by artificial intelligence and may contain errors. <strong>You should ALWAYS consult your doctor or nutritionist before making changes to your diet</strong>, especially if you have gout, hyperuricemia, or other health problems.</p>
+            </div>
+
+            <h2>DATA SECURITY AND PROTECTION</h2>
+
+            <h3>SECURE LOCAL STORAGE</h3>
+            <p>Your API key is stored using iOS's UserDefaults, which is a local storage system protected by the iOS operating system's security layers. To maximize protection:</p>
+            <ul>
+                <li>Data is never synced with iCloud or any other Apple service</li>
+                <li>Data remains exclusively on your physical device</li>
+                <li>Access to data requires your device to be unlocked</li>
+                <li>If your device is protected with Face ID, Touch ID, or a passcode, this adds an additional layer of security</li>
+            </ul>
+
+            <h3>ENCRYPTED TRANSMISSION</h3>
+            <p>All communications between the application and OpenRouter are made via HTTPS (HTTP Secure) with TLS 1.2 or higher encryption. This means:</p>
+            <ul>
+                <li>Your queries are encrypted in transit</li>
+                <li>Your API key is protected during transmission</li>
+                <li>Third parties intercepting traffic cannot read the content</li>
+            </ul>
+
+            <h2>CONTACT</h2>
+            <p>If you have questions, comments, or concerns about this Privacy Policy, how we handle your data, or if you wish to exercise any of your rights, you can contact us through:</p>
+            <ul>
+                <li><strong>Primary email:</strong> <a href="mailto:iagota@00b.tech">iagota@00b.tech</a></li>
+                <li><strong>GitHub repository (issues):</strong> <a href="https://github.com/686f6c61/IAGota/issues" target="_blank">https://github.com/686f6c61/IAGota/issues</a></li>
+            </ul>
+            <p><strong>Committed response time:</strong> We strive to respond to all inquiries within a maximum of 7 business days. For urgent requests related to data deletion or exercising rights under GDPR/CCPA, we will respond within 72 hours.</p>
+
+            <div class="info-box">
+                <strong>TRANSPARENCY: OPEN SOURCE CODE</strong>
+                <p>IAGota is an open-source application. This means that anyone with technical knowledge can inspect exactly how the application works, verify that we comply with what is stated in this Privacy Policy, and audit the code's security.</p>
+                <p>The complete source code is publicly available at: <a href="https://github.com/686f6c61/IAGota" target="_blank">https://github.com/686f6c61/IAGota</a></p>
+                <p>This transparency is our best guarantee that we truly respect your privacy as we declare.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>IAGota</h4>
+                <p>Aplicación educativa para consultar contenido de purinas en alimentos mediante inteligencia artificial.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="https://github.com/686f6c61/IAGota" target="_blank">GitHub</a></li>
+                    <li><a href="https://github.com/686f6c61/IAGota/issues" target="_blank">Reportar Issues</a></li>
+                    <li><a href="privacy.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="https://openrouter.ai" target="_blank">OpenRouter</a></li>
+                    <li><a href="https://github.com/686f6c61/IAGota/blob/main/README.md" target="_blank">Documentación</a></li>
+                    <li><a href="https://github.com/686f6c61/IAGota/blob/main/TESTS_COVERAGE.md" target="_blank">Tests Coverage</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.language-content').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Activar el contenido y botón seleccionado
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // Actualizar el lang del HTML
+            document.documentElement.lang = lang;
+
+            // Guardar preferencia en localStorage
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Cargar preferencia guardada al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang && (savedLang === 'en' || savedLang === 'es')) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>
